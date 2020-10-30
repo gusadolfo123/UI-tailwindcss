@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./libs/fontawesome/all.css" />
     <link rel="stylesheet" href="./styles/main2.css" />
-    <link rel="stylesheet" href="./styles/prueba.css" />
+    <link rel="stylesheet" href="./styles/myStyles.css" />
     <title>Document</title>
   </head>
   <body>
-    <div class="my-5 bg-blue-300 rounded-3xl m-auto w-10/12">
+    <div class="my-5 bg-gray-300 rounded-3xl m-auto w-10/12">
       <div class="flex flex-stretch p-4">
         <div class="flex flex-stretch">
-          <div class="text-gray-800 bg-red-300 rounded-tl-2xl rounded-bl-2xl w-3/12">
+          <div class="text-gray-800 rounded-tl-2xl rounded-bl-2xl w-3/12">
             <h2 class="text-left p-2 px-4 font-bold">Menu</h2>
-            <div class="px-4 py-2 hover:bg-gray-400">
+            <div class="px-4 py-2 transition duration-300 hover:bg-gray-400">
               <a href="#" class="flex content-center">
                 <div class="w-2/12">
                   <i class="far fa-file-excel"></i>
@@ -28,7 +28,7 @@
               </a>
             </div>
         
-            <div class="px-4 py-2 pb-4 hover:bg-gray-400">
+            <div class="px-4 py-2 pb-4 transition duration-300 hover:bg-gray-400">
               <a href="#" class="flex content-center">
                 <div class="w-2/12">
                   <i class="fas fa-user"></i>
@@ -44,10 +44,25 @@
           </div>   
 
           <div class=" w-9/12">
-            <div class="px-2 pt-2 rounded-tr-2xl bg-gray-300 grid grid-cols-3">
-              <div class="bg-gray-600 col-span-1 h-48 rounded-tl-2xl"></div>
-              <div class="bg-gray-500 col-span-1 h-48"></div>
-              <div class="bg-gray-600 col-span-1 h-48 rounded-tr-2xl"></div>
+            <div class="px-2 pt-2 rounded-tr-2xl bg-gray-300 grid grid-cols-3 gap-1">
+              <div class="col-span-1 h-48 rounded-tl-2xl rounded-bl-2xl data-stats">
+                <h2 class="p-4 font-bold text-center">Progreso Total</h2>
+                <section class="flex justify-center">
+                  <div class="progress_1"></div>
+                </section>
+              </div>
+              <div class="col-span-1 h-48 data-stats">
+                <h2 class="p-4 font-bold text-center">Correctos</h2>
+                <section class="flex justify-center">
+                  <div class="progress_2"></div>
+                </section>
+              </div>
+              <div class="col-span-1 h-48 rounded-tr-2xl rounded-br-2xl data-stats">
+                <h2 class="p-4 font-bold text-center">Errores</h2>
+                <section class="flex justify-center">
+                  <div class="progress_3"></div>
+                </section>
+              </div>
             </div>
             <div class="px-4 py-2 bg-gray-300">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
@@ -72,6 +87,41 @@
         </div>        
       </div>
     </div>
+    <script>
+      window.addEventListener('DOMContentLoaded', function () {
+        const circle1 = new CircleProgress('.progress_1', {
+          max: 100,
+          value: 60,
+          textFormat: 'vertical',
+        });
+
+        const circle2 = new CircleProgress('.progress_2', {
+          max: 100,
+          value: 60,
+          textFormat: 'vertical',
+        });
+
+        const circle3 = new CircleProgress('.progress_3', {
+          max: 100,
+          value: 60,
+          textFormat: 'vertical',
+        });
+
+        setInterval(() => {
+          circle1.value = Math.floor((Math.random() * 100) + 1);
+        }, 2000);
+
+        setInterval(() => {
+          circle2.value = Math.floor((Math.random() * 100) + 1);
+        }, 2000);
+
+        setInterval(() => {
+          circle3.value = Math.floor((Math.random() * 100) + 1);
+        }, 2000);
+
+      });
+    </script>
     <script src="./libs/fontawesome/all.js"></script>
+    <script src="./libs/circularProgressBar/circle-progress.js"></script>
   </body>
 </html>

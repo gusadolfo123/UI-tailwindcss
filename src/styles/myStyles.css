@@ -1,0 +1,38 @@
+.data-stats {
+  transition: 0.3s;
+  background-color: rgba(160, 174, 192, 0.5);
+}
+
+.data-stats:hover {
+  background-color: rgba(160, 174, 192, 0.7);
+}
+
+.circle-progress-value {
+  stroke-width: 6px;
+  stroke: hsl(162, 59%, 46%);
+}
+
+.circle-progress-circle {
+  stroke-width: 6px;
+  stroke: hsl(144, 36%, 72%);
+}
+
+.circle-progress-text {
+  fill: hsl(0, 0%, 0%);
+  font-weight: bold;
+}
+
+.progress_3 .circle-progress-value {
+  stroke-width: 6px;
+  stroke: hsl(0, 73%, 54%);
+}
+
+.progress_3 .circle-progress-circle {
+  stroke-width: 6px;
+  stroke: hsl(0, 100%, 89%);
+}
+
+.progress_3 .circle-progress-text {
+  fill: hsl(0, 0%, 0%);
+  font-weight: bold;
+}
