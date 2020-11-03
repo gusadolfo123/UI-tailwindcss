@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node "
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "tailwindcss": "^1.9.5"
+    "tailwindcss": "^1.9.5",
+    "vanilla-datatables": "^1.6.16"
   }
 }
