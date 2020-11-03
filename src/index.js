@@ -9,6 +9,8 @@ var datatable = new DataTable(table, {
 	perPage: 5,
 });
 
+console.log(datatable);
+
 function updateColumns() {
 	try {
 		datatable.columns().show(visible);
@@ -64,3 +66,4 @@ document.querySelectorAll(".import").forEach(function(el) {
 		datatable.import(data);
 	});
 });
+
