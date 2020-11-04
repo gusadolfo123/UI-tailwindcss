@@ -130,11 +130,13 @@
         value: 60,
         textFormat: 'vertical',
       });
+      
       let num = 1;
       setInterval(() => {
-        circle1.value = Math.floor((Math.random() * 100) + 1);
+        circle1.value = num; // Math.floor((Math.random() * 100) + 1);
          datatable.insert({
-          data: [num, "Gustavo Moreno", "gusadolfo123@hotmail.com", "3143151172"],
+          data: [num, "Gustavo Moreno", "gusadolfo123@hotmail.com", "3143151172"], 
+          direction: "unshift",
         });
         num++;
       }, 2000);

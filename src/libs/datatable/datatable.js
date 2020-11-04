@@ -908,6 +908,35 @@
     };
 
     /**
+     * Add new row to queue
+     * @param {Array} select
+     */
+    Rows.prototype.unshift = function (data) {
+
+        if (isArray(data)) {
+            var dt = this.dt;
+            // Check for multiple rows
+            if (isArray(data[0])) {
+                each(data, function (row, i) {
+                    dt.data.unshift(this.build(row));
+                }, this);
+            } else {
+                dt.data.unshift(this.build(data));
+            }
+
+            // We may have added data to an empty table
+            if ( dt.data.length ) {
+                dt.hasRows = true;
+            }
+
+            this.update();
+
+            dt.columns().rebuild();
+        }
+    };
+
+
+    /**
      * Remove row(s)
      * @param  {Array|Number} select
      * @return {Void}
@@ -1908,10 +1937,10 @@
      * @param {object} data
      */
     proto.insert = function (data) {
-
+        
         var that = this,
             rows = [];
-        if (isObject(data)) {
+        if (isObject(data)) {            
             if (data.headings) {
                 if (!that.hasHeadings && !that.hasRows) {
                     var tr = createElement("tr"),
@@ -1938,7 +1967,7 @@
                 }
             }
 
-            if (data.data && isArray(data.data)) {
+            if (data.data && isArray(data.data)) {                                
                 rows = data.data;
             }
         } else if (isArray(data)) {
@@ -1952,13 +1981,24 @@
                         r[index] = cell;
                     }
                 });
-                rows.push(r);
+
+                if(data.direction == "unshift"){
+                    rows.unshift(r);
+                }else{
+                    rows.add(r);
+                }
+                
             });
         }
 
-        if (rows.length) {
-            that.rows().add(rows);
 
+        if (rows.length) {
+            if(data.direction == "unshift"){
+                that.rows().unshift(rows);     
+            }else{
+                that.rows().add(rows);     
+            }
+            
             that.hasRows = true;
         }
 
