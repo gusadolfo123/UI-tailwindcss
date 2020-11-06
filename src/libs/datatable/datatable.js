@@ -55,10 +55,10 @@
 
         // Customise the display text
         labels: {
-            placeholder: "Search...", // The search input placeholder
-            perPage: "{select} entries per page", // per-page dropdown label
-            noRows: "No entries found", // Message shown when there are no search results
-            info: "Showing {start} to {end} of {rows} entries" //
+            placeholder: "Buscar...", // The search input placeholder
+            perPage: "{select} entradas por pagina", // per-page dropdown label
+            noRows: "Entradas no encontradas", // Message shown when there are no search results
+            info: "Viendo {start} al {end} de {rows} entradas" //
         },
 
         // Customise the layout
